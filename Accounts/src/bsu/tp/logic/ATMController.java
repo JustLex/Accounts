@@ -20,21 +20,24 @@ public class ATMController {
 			if (cardNum == -1 || !bank.hasId(cardNum)){
 				atm.showMessage(ATM.ERR_INVALID_CARD);
 			} else {
-				atm.showMessage(ATM.REQ_INPUT_PIN);
-				if (!checkPIN()){
-					atm.showMessage(ATM.ERR_PIN_CHECK_FAILED);
-					bank.blockCurrent();
-				} else {
-					int operationNum = -1;
-					while (operationNum != 0){
-						atm.showMessage(ATM.MENU);
-						atm.showMessage(ATM.REQ_CHOOSE_OPERATION);
-						operationNum = getRestrictedInt(1);
-						switch (operationNum){
-							case 1: atm.showMessage(bank.getBalance()); break;
-							case 2: withdraw(); break;
-							case 0: atm.showMessage(ATM.INF_EJECT);
+				int operationNum = -1;
+				while (operationNum != 0){
+					atm.showMessage(ATM.MENU);
+					atm.showMessage(ATM.REQ_CHOOSE_OPERATION);
+					operationNum = getRestrictedInt(1);
+					if (operationNum!= 0){
+						atm.showMessage(ATM.REQ_INPUT_PIN);
+						if (!checkPIN()){
+							atm.showMessage(ATM.ERR_PIN_CHECK_FAILED);
+							bank.blockCurrent();
+						} else{
+							switch (operationNum){
+								case 1: atm.showMessage(bank.getBalance()); break;
+								case 2: withdraw(); break;
+							}	
 						}
+					} else {
+						atm.showMessage(ATM.INF_EJECT);
 					}
 				}
 			}

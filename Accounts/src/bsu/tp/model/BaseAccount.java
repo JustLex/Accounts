@@ -38,7 +38,7 @@ public class BaseAccount {
 	}
 
 	public double withdraw(double amount) {
-		if (balance - amount > 0) {
+		if (balance - amount >= 0) {
 			balance -= amount;
 			return amount;
 		}

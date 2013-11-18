@@ -12,7 +12,7 @@ public class Run {
 		ATM atm = new ATM();
 		ATMController controller = new ATMController(bank, atm);
 		BaseAccount account1 = new BaseAccount(100, 88888888, 1234);
-		BaseAccount account2 = new BaseAccount(100, 11111111, 4321);
+		BaseAccount account2 = new BaseAccount(1000);
 		OverdraftAccount account3 = new OverdraftAccount(10000, 0.1);
 		bank.addAccount(account1);
 		bank.addAccount(account2);
@@ -21,6 +21,5 @@ public class Run {
 		System.out.println(account2.toString());
 		System.out.println(account3.toString());
 		controller.start("ATM Model 0.0.1");
-		
 	}
 }
