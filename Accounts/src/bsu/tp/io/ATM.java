@@ -3,7 +3,7 @@ package bsu.tp.io;
 import java.util.Scanner;
 
 public class ATM {
-	private Scanner input;
+	private Scanner input = new Scanner(System.in);
 	public static final String MENU = "1. Show balance\n" +
 									  "2. Withdraw\n" +
 									  "0. Return card";
@@ -16,10 +16,6 @@ public class ATM {
 	public static final String ERR_PIN_CHECK_FAILED = "3 incorrect inputs. Account blocked";
 	public static final String ERR_INVALID_PIN = "Invalid PIN. Try again";
 	public static final String INF_EJECT = "Have a good day";
-	
-	public ATM(){
-		input = new Scanner(System.in);
-	}
 	
 	public void showMessage(String message){
 		System.out.println(message);

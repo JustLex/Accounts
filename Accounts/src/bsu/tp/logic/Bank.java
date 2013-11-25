@@ -33,7 +33,7 @@ public class Bank {
 	}
 	
 	public String getBalance(){
-		return "Curent balance: " + currentAccount.getBalance();
+		return "Current balance: " + currentAccount.getBalance();
 	}
 	
 	public String withdraw(int amount){

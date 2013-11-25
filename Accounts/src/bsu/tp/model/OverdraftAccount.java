@@ -19,6 +19,9 @@ public class OverdraftAccount extends BaseAccount
    
    @Override
    public double withdraw(double amount){
+	   if (amount < 0){
+		   return 0;
+	   }
 	   balance -= amount;
 	   return amount;
    }

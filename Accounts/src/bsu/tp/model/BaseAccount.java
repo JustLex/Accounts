@@ -5,10 +5,10 @@ import java.util.Random;
 public class BaseAccount {
 	protected double balance;
 	private int pin;
-	private int id;
+	private long id;
 	private boolean active = true;
 
-	public BaseAccount(double initialBalance) {
+	public BaseAccount(double initialBalance){
 		balance = initialBalance;
 		Random rand = new Random();
 		this.id = rand.nextInt(89999999) + 10000000;
@@ -25,7 +25,7 @@ public class BaseAccount {
 		return pin;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	
@@ -38,7 +38,7 @@ public class BaseAccount {
 	}
 
 	public double withdraw(double amount) {
-		if (balance - amount >= 0) {
+		if ((balance - amount >= 0) && (amount > 0)) {
 			balance -= amount;
 			return amount;
 		}

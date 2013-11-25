@@ -18,8 +18,9 @@ public class TimedMaturityAccount extends BaseAccount
 	   if (!paymentDate.after(new Date())){
 		   return super.withdraw(amount);
 	   } else{
-		   double fee = amount * (1 - penaltyRate);
+		   double fee = amount * penaltyRate;
 		   double amountGiven = amount - fee;
+		   super.withdraw(amount);
 		   return amountGiven > 0 ? amountGiven : 0;
 	   }
    }
