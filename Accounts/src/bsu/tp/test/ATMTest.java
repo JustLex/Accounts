@@ -22,7 +22,7 @@ public class ATMTest {
 	}
 	
 	@Test
-	public void testVerification(){
+	public void testAddition(){
 		Bank bank = new Bank();
 		BaseAccount account1 = new BaseAccount(100, 88888888, 1234);
 		bank.addAccount(account1);
